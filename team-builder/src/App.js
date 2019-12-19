@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 //import logo from './logo.svg';
 import './App.css';
-import Form from './Components/Form'
+import Form from './Components/Form';
+import Members from './Components/members';
 
 function App() {
   const [members, setTeamMember] = useState([
@@ -12,7 +13,7 @@ function App() {
     }]);
 
     const [toEdit, setToEdit] = useState();
-//the above is used in line 29 to edit the members information
+//the above is used in line 30 to edit the members information
     const addNewMember = (member) => {
       const newMember = {
         name: member.name,
@@ -26,6 +27,7 @@ function App() {
     <div className="App">
       <h1>List of Our Team:</h1>
       <Form addNewMember={addNewMember} setTeamMember={setTeamMember} toEdit={toEdit} />
+      <Members members={members} setToEdit={setToEdit} />
     </div>
   );
 }
